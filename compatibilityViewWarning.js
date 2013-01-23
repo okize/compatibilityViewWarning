@@ -1,6 +1,6 @@
 /*!
- * Compatibility View Warning v1.0 (http://okize.github.com/)
- * Copyright (c) 2012 | Licensed under the MIT license - http://www.opensource.org/licenses/mit-license.php
+ * Compatibility View Warning v1.0.1 (http://okize.github.com/)
+ * Copyright (c) 2013 | Licensed under the MIT license - http://www.opensource.org/licenses/mit-license.php
  */
 
 ;(function (window, document, undefined) {
