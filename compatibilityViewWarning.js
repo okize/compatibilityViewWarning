@@ -1,5 +1,5 @@
 /*!
- * Compatibility View Warning v1.0.1 (http://okize.github.com/)
+ * Compatibility View Warning v1.0.2 (http://okize.github.com/)
  * Copyright (c) 2013 | Licensed under the MIT license - http://www.opensource.org/licenses/mit-license.php
  */
 
@@ -56,9 +56,9 @@
 			var body = document.getElementsByTagName('body')[0],
 				firstEl = body.firstElementChild || body.children[0], // ie7 doesn't support firstElementChild
 				msg = document.createElement('div'), // the warning message element
-				msgStyle = msg.style,
-				closeBtn = document.createElement('button'), // button element that will dismiss the warning message
-				closeBtnStyle = closeBtn.style;
+				msgStyle = msg.style, // css styleing of message
+				btn = document.createElement('button'), // button element that will dismiss the warning message
+				btnStyle = btn.style; // css styling of button
 
 			// set warning message properties
 			msg.id = 'compatibilityViewWarning';
@@ -68,21 +68,21 @@
 			if (config.closeButton) {
 
 				// set close button properties
-				closeBtn.id = 'compatibilityViewWarningClose';
-				closeBtn.innerText = 'X';
-				closeBtn.title = 'Click to dismiss this warning message';
+				btn.id = 'compatibilityViewWarningClose';
+				btn.innerText = 'X';
+				btn.title = 'Click to dismiss this warning message';
 
 				// when close button is clicked this function removes the warning message from the dom
-				closeBtn.dismissMsg = function(e) {
+				btn.dismissMsg = function(e) {
 
 					e = e||window.event;
 					e.returnValue = false;
 
 					// unbind event handler for gc
 					if (this.removeEventListener) {
-						this.removeEventListener('click', closeBtn.dismissMsg, false);
+						this.removeEventListener('click', btn.dismissMsg, false);
 					} else if (this.detachEvent) {
-						this.detachEvent('onclick', closeBtn.dismissMsg);
+						this.detachEvent('onclick', btn.dismissMsg);
 					}
 
 					// remove the warning message
@@ -91,16 +91,16 @@
 				};
 
 				// attach click handler
-				if (closeBtn.addEventListener) {
-					closeBtn.addEventListener('click', closeBtn.dismissMsg, false);
-				} else if (closeBtn.attachEvent) {
-					closeBtn.attachEvent ('onclick', closeBtn.dismissMsg);
+				if (btn.addEventListener) {
+					btn.addEventListener('click', btn.dismissMsg, false);
+				} else if (btn.attachEvent) {
+					btn.attachEvent ('onclick', btn.dismissMsg);
 				} else {
-					closeBtn.onclick = closeBtn.dismissMsg;
+					btn.onclick = btn.dismissMsg;
 				}
 
 				// add close buton to warning message
-				msg.appendChild(closeBtn);
+				msg.appendChild(btn);
 
 			}
 
@@ -118,21 +118,21 @@
 
 			// set close button styles
 			if (config.closeButton && config.inlineCss) {
-				closeBtnStyle.backgroundColor = '#333';
-				closeBtnStyle.border = 'none';
-				closeBtnStyle.color = '#fff';
-				closeBtnStyle.cursor = 'pointer';
-				closeBtnStyle.display = 'inline';
-				closeBtnStyle.fontSize = '10px';
-				closeBtnStyle.fontWeight = 'bold';
-				closeBtnStyle.height = '16px';
-				closeBtnStyle.left = '5px';
-				closeBtnStyle.margin = '0';
-				closeBtnStyle.padding = '0';
-				closeBtnStyle.position = 'absolute';
-				closeBtnStyle.textAlign = 'center';
-				closeBtnStyle.top = '5px';
-				closeBtnStyle.width = '16px';
+				btnStyle.backgroundColor = '#333';
+				btnStyle.border = 'none';
+				btnStyle.color = '#fff';
+				btnStyle.cursor = 'pointer';
+				btnStyle.display = 'inline';
+				btnStyle.fontSize = '10px';
+				btnStyle.fontWeight = 'bold';
+				btnStyle.height = '16px';
+				btnStyle.left = '5px';
+				btnStyle.margin = '0';
+				btnStyle.padding = '0';
+				btnStyle.position = 'absolute';
+				btnStyle.textAlign = 'center';
+				btnStyle.top = '5px';
+				btnStyle.width = '16px';
 			}
 
 			// append warning message to the dom
@@ -146,12 +146,12 @@
 	if (document.body) {
 		warning.init();
 	} else if (window.addEventListener) {
-		window.addEventListener('load', function load(e) {
+		window.addEventListener('load', function load() {
 			window.removeEventListener('load', load, false);
 			warning.init();
 		}, false);
 	} else {
-		window.attachEvent('onload', function load(e) {
+		window.attachEvent('onload', function load() {
 			window.detachEvent('onload', load);
 			warning.init();
 		}, false);
