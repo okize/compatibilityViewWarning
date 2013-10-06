@@ -56,7 +56,7 @@
       var body = document.getElementsByTagName('body')[0],
         firstEl = body.firstElementChild || body.children[0], // ie7 doesn't support firstElementChild
         msg = document.createElement('div'), // the warning message element
-        msgStyle = msg.style, // css styleing of message
+        msgStyle = msg.style, // css styling of message
         btn = document.createElement('button'), // button element that will dismiss the warning message
         btnStyle = btn.style; // css styling of button
 
