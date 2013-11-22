@@ -12,9 +12,11 @@ Just include the minified script on your page, and that's it!
 <script src="https://raw.github.com/okize/compatibilityViewWarning/master/compatibilityViewWarning.min.js"></script>
  ```
 
-## Documentation
+## Example
 
-See [okize.github.io/compatibilityViewWarning](http://okize.github.io/compatibilityViewWarning/)
+See [okize.github.io/compatibilityViewWarning](http://okize.github.io/compatibilityViewWarning/) for an example page, but basically it looks like this:
+
+![compatibilityViewWarning in action](http://okize.github.io/compatibilityViewWarning/screenshot.png)
 
 ## Dependencies
 
